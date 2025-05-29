@@ -23,18 +23,24 @@ Este repositorio contiene los **archivos de configuración esenciales** utilizad
 
 ---
 
-## 🧪 Entorno de despliegue
+## ⚙️ Entorno de despliegue
 
 Este conjunto de configuraciones ha sido desarrollado para un entorno con las siguientes características técnicas:
 
-- 🌐 VPN WireGuard para acceso remoto seguro
-- 📡 Servidor DNS interno con BIND9
-- 🧩 Autenticación Kerberos + OpenLDAP
-- 🧱 Proxy Squid con ACLs y autenticación
-- 🗂️ Infraestructura segmentada por VLANs:
-  - VLAN10_ADMIN (Administración)
-  - VLAN20_USUARIOS (Usuarios)
-  - VLAN30_DMZ (Servicios públicos)
+- 🌐 **VPN WireGuard** para acceso remoto seguro de clientes ubicados fuera de la red interna.
+- 📡 **Servidor DNS interno (BIND9)** utilizado para la resolución de nombres FQDN en todo el entorno.
+- 🧩 **Autenticación centralizada mediante Kerberos + OpenLDAP**.
+- 🔒 **Servidor web Apache** configurado con:
+  - 🧠 **SSO mediante Kerberos** (`mod_auth_kerb`)
+  - 🔁 **Fallback a autenticación LDAP** si el cliente no soporta SSO
+- 🧱 **Proxy Squid** configurado como proxy autenticado mediante LDAP, con:
+  - 📜 **ACLs de filtrado de contenido**
+  - 🚫 **Redirección personalizada** a una página de acceso denegado
+- 🗂️ **Infraestructura segmentada por VLANs**, con aislamiento y control de tráfico mediante reglas `iptables`:
+  - 🔧 `VLAN10_ADMIN`: Servidores internos y gestión (VPN, Kerberos+LDAP, DNS)
+  - 👥 `VLAN20_USUARIOS`: Clientes finales conectados vía VPN
+  - 🌍 `VLAN30_DMZ`: Servicios accesibles a través del proxy (Apache y Squid)
+
 
 ---
 
