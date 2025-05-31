@@ -66,6 +66,9 @@ iptables -A INPUT  -i "$Interface_DMZ" -s "$VLAN30_DMZ" -j ACCEPT
 iptables -A OUTPUT -o "$Interface_DMZ" -d "$VLAN30_DMZ" -j ACCEPT
 iptables -A FORWARD -i "$Interface_DMZ" -o "$Interface_DMZ" -s "$VLAN30_DMZ" -d "$VLAN30_DMZ" -j ACCEPT
 
+iptables -A FORWARD -s "$VLAN30_DMZ" -d "$IP_LDAP" -p tcp -m multiport --dports 88,389,636,464 -j ACCEPT
+iptables -A FORWARD -s "$VLAN30_DMZ" -d "$IP_LDAP" -p udp -m multiport --dports 88,389,464 -j ACCEPT
+
 
 # === 4. TRÁFICO DESDE VPN ===
 echo "[ 4. ] Permitiendo tráfico para establecer el túnel WireGuard (UDP/51820)..."
@@ -159,5 +162,5 @@ cat /etc/iptables/rules.v4
 echo ""
 echo "[✓] Reglas iptables aplicadas correctamente."
 echo ""
-echo " Script: definitivo.sh"
+echo " Script: iptables-firewall.sh"
 echo ""
