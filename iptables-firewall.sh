@@ -81,7 +81,7 @@ iptables -A FORWARD -i "$Interface_Usuarios" -o "$Interface_Admin" -s "$VLAN20_U
 echo "[ 5. ] Permitiendo tráfico interno tras establecer la VPN..."
 
 echo "[ 5.1 ] Permitiendo tráfico entre cliente y servidor VPN..."
-# VPN cliente (10.10.0.2) ↔ Servidor VPN (10.10.0.1/192.168.10.10)
+# VPN cliente (10.10.0.2) ↔ Servidor VPN (10.10.0.1)
 iptables -A FORWARD -s "$VPN_SUBNET" -d "$IP_VPN" -j ACCEPT
 iptables -A FORWARD -s "$IP_VPN" -d "$VPN_SUBNET" -j ACCEPT
 
