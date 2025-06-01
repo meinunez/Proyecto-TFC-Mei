@@ -7,16 +7,16 @@
 # === 1. DEFINICIÓN DE VARIABLES ===
 
 # Interfaces asignadas a cada VLAN
-Interface_Admin="ens33"      # VLAN10_Admin
-Interface_Usuarios="ens37"   # VLAN20_Usuarios
-Interface_DMZ="ens38"        # VLAN30_DMZ
-Interface_NAT="ens39"        # Salida a Internet (NAT)
+Interface_Admin="ens33"      # INTERFAZ VLAN10_Admin
+Interface_Usuarios="ens37"   # INTERFAZ VLAN20_Usuarios
+Interface_DMZ="ens38"        # INTERFAZ VLAN30_DMZ
+Interface_NAT="ens39"        # INTERFAZ Salida a Internet (NAT)
 
 # Subredes de cada VLAN
-VLAN10_ADMIN="192.168.10.0/24"
-VLAN20_USUARIOS="192.168.20.0/24"
-VLAN30_DMZ="192.168.30.0/24"
-VPN_SUBNET="10.10.0.0/24"
+VLAN10_ADMIN="192.168.10.0/24"      # VLAN10_Admin
+VLAN20_USUARIOS="192.168.20.0/24"   # VLAN20_Usuarios
+VLAN30_DMZ="192.168.30.0/24"        # VLAN30_DMZ
+VPN_SUBNET="10.10.0.0/24"           # VPN
 
 # IPs de servicios
 IP_VPN="192.168.10.10"       # Servidor VPN (WireGuard)
