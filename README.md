@@ -25,5 +25,4 @@ Este repositorio contiene los **archivos de configuración esenciales** utilizad
 
 📎 *Todos los archivos están referenciados y documentados en el desarrollo del TFG.*
 
-✍️ **Autora**: Mei Núñez  
-📅 **Curso**: 2024–2025 | **Centro**: Ciclo Superior ASIR
+✍️ **Autora**: Mei Núñez  |   📅 **Curso**: 2024–2025
