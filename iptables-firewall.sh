@@ -99,6 +99,9 @@ echo "[ 5.4 ] Permitiendo tráfico entre cliente VPN y proxy Squid..."
 # Permitir tráfico desde clientes VPN al proxy Squid (TCP/3128)
 iptables -A FORWARD -s "$VPN_SUBNET" -d "$IP_PROXY" -p tcp --dport 3128 -j ACCEPT
 
+# [ 5.5 ] Bloqueo explícito de tráfico HTTP/HTTPS directo desde clientes VPN (deben usar el proxy)
+iptables -A FORWARD -s "$VPN_SUBNET" -p tcp -m multiport --dports 80,443 -j REJECT
+
 
 # === 6. PERMITIR AL PROXY SQUID ACCESO DIRECTO HACIA SERVIDOR WEB ===
 echo "[ 6. ] Permitiendo acceso al proxy Squid..."
