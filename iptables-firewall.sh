@@ -22,7 +22,7 @@ VPN_SUBNET="10.10.0.0/24"           # VPN
 IP_VPN="192.168.10.10"       # Servidor VPN (WireGuard)
 IP_LDAP="192.168.10.20"      # Servidor de Autenticación (Kerberos + LDAP + Bind9)
 IP_PROXY="192.168.30.10"     # Servidor Proxy (Squid)
-IP_WEB="192.168.30.20"       # Servidor Web (Apache con SSL)
+IP_WEB="192.168.30.20"       # Servidor Web (Apache)
 
 
 # === 2. LIMPIEZA DE REGLAS ===
