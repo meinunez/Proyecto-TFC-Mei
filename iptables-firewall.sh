@@ -66,6 +66,7 @@ iptables -A INPUT  -i "$Interface_DMZ" -s "$VLAN30_DMZ" -j ACCEPT
 iptables -A OUTPUT -o "$Interface_DMZ" -d "$VLAN30_DMZ" -j ACCEPT
 iptables -A FORWARD -i "$Interface_DMZ" -o "$Interface_DMZ" -s "$VLAN30_DMZ" -d "$VLAN30_DMZ" -j ACCEPT
 
+# Permitir DMZ → LDAP/Kerberos para autenticación
 iptables -A FORWARD -s "$VLAN30_DMZ" -d "$IP_LDAP" -p tcp -m multiport --dports 88,389,636,464 -j ACCEPT
 iptables -A FORWARD -s "$VLAN30_DMZ" -d "$IP_LDAP" -p udp -m multiport --dports 88,389,464 -j ACCEPT
 
